@@ -1,0 +1,47 @@
+
+<div style="margin-top:150px;background-color: #3CBC8D;width:440px;margin-left:700px;" align="center">
+<br>
+<h2><u>Register</u></h2>
+<br>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  
+  <td><div class="field"><%= f.label :name %><br /></td>
+  <td><%= f.text_field :name, autofocus: true %></div></td>
+  <br>
+  <br>
+  
+  <div class="field">Male<%= f.radio_button :if_female, "false" %> </div>
+  <div class="field">Female<%= f.radio_button :if_female, "true" %>  </div>
+  <br>
+  <div class="field"><%= f.label :dob %><br />
+  <%= f.date_select :dob %></div>
+  <br>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+<br>
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+<br>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+<br>
+  <div class="actions">
+    <input type="submit" value="Sign Up" class="btn btn-warning">
+  </div>
+<% end %>
+<br>
+<br>
+
+<%= render "users/shared/links" %>
+</div>

@@ -1,0 +1,17 @@
+
+<p style="font-family:courier;font-size:18px;"><%= comment.body %> &nbsp &nbsp<span><%= time_ago_in_words(comment.created_at) %></span></p>
+<span>--</span><%= User.where(:id => comment.user_id).first.try(:name) %>
+
+<p>
+<%comment.comments.each do |comment| %>
+  <%= comment.body %>
+  &nbsp &nbsp
+  <%= time_ago_in_words(comment.created_at) %>
+  &nbsp &nbsp &nbsp &nbsp
+  <br>
+<% end %>
+  <%= form_for "comment", url: mycomment_path(comment) do |f| %>
+    <%= f.text_field :body , :style => "background-color:rgb(255, 217, 179)" %>
+    <%= f.submit "Reply" %>
+  <% end %>
+</p>

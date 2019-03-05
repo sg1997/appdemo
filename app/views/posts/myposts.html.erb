@@ -1,0 +1,19 @@
+<div style="background-color:rgb(255, 255, 204);" class="container-fluid">
+<table style="width:100%">
+<tr style="border-bottom:5px solid black;">
+<th style="color:Black;text-align:center;font-size:35px">Title</th>
+<th style="color:Black;text-align:center;font-size:35px">Body</th>
+<th style="color:Black;text-align:center;font-size:35px" colspan="2"> Actions</th>
+</tr>
+<% @posts.each do |post| %>
+    <tr>
+    <td style="font-size:30px;text-align:center"><%= post.title%></td>
+    <td style="font-size:20px;text-align:center"><%= post.body%></td>
+    <td><button class="btn btn-info"><%= link_to('Edit', edit_post_path(post)) %></td>
+    <td ><button class="btn btn-warning"><%= link_to 'Destroy', post_path(post),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></button></td>
+    </tr>
+ <% end %>
+ </table>   
+ </div>

@@ -1,0 +1,35 @@
+// Place all the styles related to the post controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+th {
+    color: white;
+    padding:20px;
+    font-size: 25px;
+    font-style: bold;
+}
+
+a:link {
+    text-decoration:none;
+}
+
+td {
+    padding:12px;
+    font-size: 15px;
+}
+
+#t01 tr:nth-child(odd){
+    background-color:rgb(234, 234, 225)
+
+}
+
+#form1 {
+    background-color:rgb(255, 255, 204)
+}
+
+td {
+    font-size:20px;
+}
+p{
+    font-family: system-ui;
+}

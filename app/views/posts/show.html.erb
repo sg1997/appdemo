@@ -1,0 +1,27 @@
+<div class="container-fluid" style="background-color:rgb(235, 235, 224);height:960px">
+<p style="font-size:40px;text-align:center;background-color:rgb(188, 208, 220);color:white">
+<big><%= @post.title %></big>
+</p>
+<hr>
+
+<p style="font-size:20px">
+<%= @post.body %>
+</p>
+<p>
+Published: &nbsp &nbsp <%= @post.published %>
+</p>
+<br>
+<% @post.all_tags.split(",").each do |post| %>
+    <button class="btn btn-default"><%= post %></button>
+ <% end %>   
+<br>
+<br>
+<br>
+<div style="background-color:white"> 
+<p style="font-size:29px;">Comments:<span><%= @post.comments.count %></span></p>
+<div id="com_content">
+<%= render @post.comments %>
+</div>
+<%= render "comments/form" %>
+</div>
+</div>

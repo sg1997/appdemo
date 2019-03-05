@@ -1,0 +1,48 @@
+<div class="jumbotron" style="height:960px;">
+<div style="margin-left:180px;margin-top:30px;width:80%;height:94%;padding:30px;background-color: rgb(150, 150, 105);border:1px solid;border-radius:50px">
+<h1 style="text-align:center"><u>Edit article</u></h1>
+<br><br>
+ 
+<%= form_with(model: @post) do |form| %>
+ 
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@post.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body ,:style => "height:200px;width:100%" %>
+  </p>
+
+  <p>
+  <%= form.label :all_tags, :style => "font-size:20px"  %><br>
+  <%= form.text_area :all_tags %><br><br>
+  </p>
+  <% if user_signed_in? && current_user.utype == 'admin' %>
+  <p>
+  Published<%= form.radio_button :published, "true" %> 
+  Unpublished<%= form.radio_button :published, "false" %>
+  </p>
+ <% end %>
+  <p style="text-align:center;margin-top:50px;">
+    <input type="submit" value="Save Changes" class="btn btn-default btn-lg" style="background-color:rgb(153, 255, 153)">
+  </p>
+ 
+<% end %>
+</div>
+</div>

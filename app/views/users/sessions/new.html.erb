@@ -1,0 +1,38 @@
+
+<div class="jumbotron" style="height:960px;">
+<div  style="margin-top:150px;background-color: #3CBC8D;width:400px;margin-left:700px;" align="center">
+<h2><u>Log in</u></h2>
+<br>
+<br>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email, :style => "font-size:20px" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  <br>
+  <br>
+  <div class="field">
+    <%= f.label :password , :style => "font-size:20px"%><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+  <br>
+  <br>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+  <br>
+  <br>
+  <div class="actions">
+    <input type="submit" value="Login" class="btn btn-default">
+  </div>
+<% end %>
+<br>
+<br>
+<%= render "users/shared/links" %>
+</div>
+</div>
